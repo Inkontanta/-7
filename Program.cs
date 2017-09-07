@@ -10,6 +10,7 @@ namespace Zadanie_7
     {
         static void Main(string[] args)
         {
+            int i = 0;
             int n = 0, depth=0;
             bool ok = false;
             while (!ok)                 //проверка ввода 1-ой переменной m
@@ -26,13 +27,56 @@ namespace Zadanie_7
                     ok = false;
                 }
             }
-            int[] arr = new int[(int)Math.Pow(2, n)];
-            
-            gray(n, arr[], depth);
-            for (int i = 0; i < n; i++)
+            int a = (int)Math.Pow(2, n), b=0;
+            string [] arr = new string[a];
+
+            arr[0] = "0";
+            arr[1] = "1";
+          //  arr[2] = arr[1];
+          //  arr[3] = arr[0];
+            while (arr[0].Length != n)
+            {
+               
+
+                while (b == 0)
+                {
+                    
+                    if (arr[i] == null)
+                        {
+                            b = i;
+                        }
+                    i++;
+                }
+                //b--;
+                b = b * 2;
+                int j = 1;
+                for (i=b/2;i<b;i++)
+                {
+                    arr[i] = arr[i -j ];
+                    j=j+2;
+
+                }
+                for ( i = 0; i < b; i++)
+                {
+                    if (i < b / 2)
+                    {
+                        arr[i] = "0" + arr[i];
+                    }
+                    else
+                    {
+                        arr[i] = "1" + arr[i];
+                    }
+                }
+
+
+                //  gray(n, arr[], depth);
+               
+            }
+            for (i = 0; i < a; i++)
             {
                 Console.WriteLine(arr[i] + "  ");
             }
+            Console.ReadKey();
 
         }
 
@@ -57,6 +101,6 @@ namespace Zadanie_7
     
 
             
-        }
+        
     }
 }
